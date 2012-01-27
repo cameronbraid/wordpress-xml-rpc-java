@@ -1,8 +1,34 @@
 package wpxmlrpc4j;
 
 public class NewCategory {
-	public String name;
-	public String slug;
-	public Integer parent_id;
-	public String description;
+	private String name;
+	private String slug;
+	private Integer parent_id;
+	private String description;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getSlug() {
+		return slug;
+	}
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+	public Integer getParent_id() {
+		return parent_id;
+	}
+	public void setParent_id(Integer parent_id) {
+		this.parent_id = parent_id;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 }

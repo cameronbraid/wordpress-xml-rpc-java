@@ -2,7 +2,7 @@ package wpxmlrpc4j;
 
 import java.util.Map;
 
-interface WordpressXmlRpc {
+public interface Wordpress {
 	UserBlog[] getUsersBlogs(String username, String password);
 	Tag[] getTags(int blogid, String username, String password);
 	Author[] getAuthors(int blogid, String username, String password);
@@ -30,7 +30,7 @@ interface WordpressXmlRpc {
 	PageLight[] getPageList(int blogid, String username, String password);
 	
 	String newPage(int blogid, String username, String password, Page page, boolean publish);
-	boolean deletePage(int blogid, String username, String password, int page_id);
+	boolean deletePage(int blogid, String username, String password, int page_id, boolean publish);
 	boolean editPage(int blogid, int page_id, String username, String password, Page page, boolean publish);
 	
 	Category[] getCategories(int blogid, String username, String password);
