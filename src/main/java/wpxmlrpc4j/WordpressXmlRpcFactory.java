@@ -15,8 +15,6 @@ import org.apache.xmlrpc.client.XmlRpcClient;
 import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.apache.xmlrpc.common.TypeFactory;
 import org.apache.xmlrpc.common.TypeFactoryImpl;
-import org.apache.xmlrpc.common.XmlRpcController;
-import org.apache.xmlrpc.common.XmlRpcInvocationException;
 import org.apache.xmlrpc.common.XmlRpcStreamConfig;
 import org.apache.xmlrpc.serializer.TypeSerializer;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -86,6 +84,12 @@ public class WordpressXmlRpcFactory {
 				
 			}
     	});
+    	
+//        final HttpClient httpClient = new HttpClient();
+//        final XmlRpcCommonsTransportFactory transportFactory = new XmlRpcCommonsTransportFactory(client);
+//        transportFactory.setHttpClient(httpClient);
+//        client.setTransportFactory(transportFactory);
+
     	MyClientFactory factory = new MyClientFactory(client);
     	X rpc = (X) factory.newInstance(Thread.currentThread().getContextClassLoader(), clazz, methodPrefix);
     	return rpc;
@@ -161,19 +165,23 @@ public class WordpressXmlRpcFactory {
 	}
 	
 	public static void main(String[] args) {
+		SSLUtilities.trustAllHostnames();
+		SSLUtilities.trustAllHttpsCertificates();
 		String username = "server";
 		String password = "!drivenow-1910";
-		String url = "http://campervanhirenow.wordpress.beast.braid.com.au/xmlrpc.php";
+		String url = "https://melbournecarhire.com.au/xmlrpc.php";
 
-//		Wordpress wp = wordpress(url);
+		Wordpress wp = wordpress(url);
+		Page page = wp.getPage(0,  9, username, password);
+		System.out.println(page);
 //		Page[] pages = wp.getPages(0, username, password, 1);
 //		Page page = pages[0];
 //		boolean editPage = wp.editPage(0, page.getPage_id(), username, password, page, true);
 //		System.out.println(editPage);
 		
-		DriveNowXmlRpc xml = WordpressXmlRpcFactory.xmlrpcClient("http://campervanhirenow.wordpress.beast.braid.com.au/xmlrpc.php", DriveNowXmlRpc.class, "drivenow");
-		System.out.println(xml.findPageIdByParentPageIdAndSlug(0, "about-us"));
-		System.out.println(xml.findPageIdByParentPageIdAndSlug(27, "about-us"));
+//		DriveNowXmlRpc xml = WordpressXmlRpcFactory.xmlrpcClient("http://campervanhirenow.wordpress.beast.braid.com.au/xmlrpc.php", DriveNowXmlRpc.class, "drivenow");
+//		System.out.println(xml.findPageIdByParentPageIdAndSlug(0, "about-us"));
+//		System.out.println(xml.findPageIdByParentPageIdAndSlug(27, "about-us"));
 
 
 	}

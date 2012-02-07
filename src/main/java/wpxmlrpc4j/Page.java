@@ -14,7 +14,7 @@ public class Page implements Cloneable {
 	private String title;
 	private String link;
 	private String permaLink;
-	private Category[] categories;
+	private String[] categories;
 	private String excerpt;
 	private String text_more;
 	private Integer mt_allow_comments;
@@ -95,11 +95,11 @@ public class Page implements Cloneable {
 		this.permaLink = permaLink;
 	}
 
-	public Category[] getCategories() {
+	public String[] getCategories() {
 		return categories;
 	}
 
-	public void setCategories(Category[] categories) {
+	public void setCategories(String[] categories) {
 		this.categories = categories;
 	}
 

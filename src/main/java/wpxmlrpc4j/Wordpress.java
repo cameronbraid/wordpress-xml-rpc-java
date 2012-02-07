@@ -44,4 +44,5 @@ public interface Wordpress {
 	
 	MediaItem[] getMediaLibrary(int blogid, String username, String password, MediaItemFilter filter);
 	MediaItem getMediaItem(int blogid, String username, String password, int attachmend_id);
+	
 }
