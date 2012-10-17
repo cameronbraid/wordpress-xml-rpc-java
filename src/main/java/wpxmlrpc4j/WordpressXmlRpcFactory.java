@@ -17,9 +17,10 @@ import org.apache.xmlrpc.common.TypeFactory;
 import org.apache.xmlrpc.common.TypeFactoryImpl;
 import org.apache.xmlrpc.common.XmlRpcStreamConfig;
 import org.apache.xmlrpc.serializer.TypeSerializer;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.SAXException;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class WordpressXmlRpcFactory {
